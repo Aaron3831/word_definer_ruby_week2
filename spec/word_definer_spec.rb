@@ -20,9 +20,26 @@ describe('Definition') do
 end
 
 describe("#save") do
-  it "returns words" do
+  it ("returns words") do
     test_word = Word.new({:word_add=> "Granite"})
     test_word.save()
     expect(Word.all()).to eq([test_word])
+  end
+end
+
+describe(".clear") do
+  it "clears the saved word" do
+    test_word = Word.new({:word_add=> "Stratos"})
+    test_word.save()
+    Word.clear()
+    expect(Word.all()).to eq([])
+  end
+end
+
+describe(".find") do
+  it("returns a word by it's id number") do
+    test_word = Word.new({:word_add=> "Granite"})
+    test_word.save()
+    expect(Word.find(test_word.id())).to eq(test_word)
   end
 end
