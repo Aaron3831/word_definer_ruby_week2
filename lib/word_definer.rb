@@ -1,10 +1,11 @@
 class Word
-  attr_accessor(:word_add, :id)
+  attr_reader(:word_add, :id)
   @@words_list = []
 
   def initialize(attributes)
     @word_add = attributes[:word_add]
     @id = @@words_list.length() + 1
+    @word_add_list = []
   end
 
   def save
@@ -19,8 +20,8 @@ class Word
     @@words_list = []
   end
 
-  def add_word(word)
-    @word.push(word)
+  def add_word(word_add)
+    @word_add_list.push(word_add)
   end
 
   def add_definition(definition)
@@ -28,18 +29,18 @@ class Word
   end
 
   def self.find (id)
-    found_words = nil
-    @@words_list.each() do |words|
-      if words.id() == id.to_i
-        found_words = words
+    found_word = nil
+    @@words_list.each() do |word|
+      if word.id() == id.to_i
+        found_word = word
       end
     end
-    found_words
+    found_word
   end
 end
 
 class Definition
-  attr_accessor(:definition_add)
+  attr_reader(:definition_add)
 
   def initialize(attributes)
     @definition_add = attributes[:definition_add]
