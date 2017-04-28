@@ -25,11 +25,32 @@ post('/words')  do
   erb(:words)
 end
 
-post('/contacts/:id') do
+get('/words/:id') do
   @words_list = Word.find(params.fetch("id"))
-  word = params.fetch("word-add")
+  erb(:definition_form)
+end
 
-  word = Word.new({:word_add=> word})
-  @word.add_word(word)
-  erb(:word)
+get('/word/:id')  do
+  @word = Word.find(params.fetch("id"))
+  erb(:definition_form)
+end
+
+post('/word/:id') do
+  @word = Word.find(params.fetch("id"))
+  definition = params.fetch("definition-add")
+
+  definition = Definition.new({:definition_add=> definition})
+
+  @word.add_definition(definition)
+  erb(:definition_form)
+end
+
+post('/words/:id') do
+  @word = Word.find(params.fetch("id"))
+  definition = params.fetch("definition-add")
+
+  definition = Definition.new({:definition_add=> definition})
+
+  @word.add_definition(definition)
+  erb(:definition_form)
 end

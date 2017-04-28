@@ -1,11 +1,12 @@
 class Word
-  attr_reader(:word_add, :id)
+  attr_accessor(:word_add, :definition, :id)
   @@words_list = []
 
   def initialize(attributes)
     @word_add = attributes[:word_add]
-    @id = @@words_list.length() + 1
     @word_add_list = []
+    @definition = []
+    @id = @@words_list.length() + 1
   end
 
   def save
@@ -40,7 +41,7 @@ class Word
 end
 
 class Definition
-  attr_reader(:definition_add)
+  attr_accessor(:definition_add)
 
   def initialize(attributes)
     @definition_add = attributes[:definition_add]

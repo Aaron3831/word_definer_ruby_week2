@@ -1,10 +1,10 @@
 <h1>Add a definition:</h1>
 <div class="row">
-  <% @words_list.definitions().each() do |definition| %>
-    <h4> : <i><%= definition.add_definition() %></i></h4>
+  <% @word.definition().each() do |definition| %>
+    <h4><i><%= definition.definition_add() %></i></h4>
   <% end %>
 </div>
-<form action="/word/ <%= @words_list.id() %>" method="post">
+<form action="/words/ <%= @word.id() %>" method="post">
   <div class="form-group">
     <label for="definition-add">Type Your Definition Here:</label>
     <input id="definition-add" name="definition-add" type="text" class="form-control">
