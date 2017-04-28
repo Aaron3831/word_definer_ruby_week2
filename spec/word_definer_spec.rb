@@ -18,3 +18,11 @@ describe('Definition') do
     end
   end
 end
+
+describe("#save") do
+  it "returns words" do
+    test_word = Word.new({:word_add=> "Granite"})
+    test_word.save()
+    expect(Word.all()).to eq([test_word])
+  end
+end
