@@ -1,0 +1,8 @@
+<h1>Word List</h1>
+
+<h3>Currently listed words:</h3>
+<ul>
+  <% @words_list.each() do |word| %>
+    <li><a href="/words/<%= word.id() %>"></li>
+  <% end %>
+</ul>

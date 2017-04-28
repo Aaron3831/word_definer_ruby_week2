@@ -8,7 +8,7 @@ get('/') do
   erb(:index)
 end
 
-get('/word_definer') do
-  @word_definer = Word.all()
-  erb(:word_definer)
+get('/words') do
+  @words_list = Word.all()
+  erb(:words)
 end
