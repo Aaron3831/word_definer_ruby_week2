@@ -3,6 +3,6 @@
 <h3>Currently listed words:</h3>
 <ul>
   <% @words_list.each() do |word| %>
-    <li><a href="/words/<%= word.id() %>"><%= word.word_add()%></li>
+    <li><a href="/definition_form/<%= word.id() %>"><%= word.word_add()%></li>
   <% end %>
 </ul>

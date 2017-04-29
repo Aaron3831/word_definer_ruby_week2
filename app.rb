@@ -54,3 +54,8 @@ post('/words/:id') do
   @word.add_definition(definition)
   erb(:definition_form)
 end
+
+get('/definition_form/:id')  do
+  @word = Word.find(params.fetch("id"))
+  erb(:definition_form)
+end
