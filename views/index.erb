@@ -1,5 +1,6 @@
 <h1>Words and their Definitions</h1>
 <ul>
-  <li><a href="/words">See Word List</a></li>
-  <li><a href="/word/new">Add Word</a></li>
+  <% @words_list.each() do |word| %>
+    <li><a href="/definition_form/<%= word.id() %>"><%= word.word_add()%></li>
+  <% end %>
 </ul>
